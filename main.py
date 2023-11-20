@@ -4,6 +4,13 @@ from PIL import Image
 import io
 from Service_Settings import provider_site_link
 import requests
+import os
+
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 
 app = Flask(__name__)
 
@@ -706,4 +713,6 @@ def deflate_image_route():
     return process_image_response(deflated_image, f"{input_file_path.split('/')[-1]}_deflated_with_{x}by{y}")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use the environment variable for the port, fallback to 5000 if not specified
+    port = int(os.getenv('FLASK_RUN_PORT', 5000))
+    app.run(debug=True, port=port)
