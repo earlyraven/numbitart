@@ -706,4 +706,5 @@ def deflate_image_route():
     return process_image_response(deflated_image, f"{input_file_path.split('/')[-1]}_deflated_with_{x}by{y}")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
+    # app.run(debug=True)
