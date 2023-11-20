@@ -2,17 +2,23 @@ from flask import Flask, request, make_response
 import numpy as np
 from PIL import Image
 import io
-from Service_Settings import provider_site_link
 import requests
 import os
 
-from dotenv import load_dotenv
+provider_site_link = "csvup.com"
 
-# Load environment variables from .env file
-load_dotenv()
 
+# provider_site_link = "csvup.com"
+# from dotenv import load_dotenv
+
+# # Load environment variables from .env file
+# load_dotenv()
 
 app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Hello, Flask and Gunicorn! Try navigating to the api endpoints.'
 
 def validate_positive_integer_input(value, param_name):
     try:
@@ -712,7 +718,10 @@ def deflate_image_route():
     deflated_image = deflate(x, y, input_image)
     return process_image_response(deflated_image, f"{input_file_path.split('/')[-1]}_deflated_with_{x}by{y}")
 
+# if __name__ == '__main__':
+#     # Use the environment variable for the port, fallback to 5000 if not specified
+#     port = int(os.getenv('FLASK_RUN_PORT', 5000))
+#     app.run(debug=True, port=port)
+
 if __name__ == '__main__':
-    # Use the environment variable for the port, fallback to 5000 if not specified
-    port = int(os.getenv('FLASK_RUN_PORT', 5000))
-    app.run(debug=True, port=port)
+    app.run(debug=True)

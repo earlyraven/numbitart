@@ -1,6 +1,2 @@
 Flask
-numpy
-Pillow
-requests
-python-dotenv
-
+gunicorn
