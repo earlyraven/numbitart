@@ -4,7 +4,6 @@ from PIL import Image
 import io
 import requests
 import os
-
 import time
 from io import BytesIO
 import json
@@ -22,21 +21,22 @@ def put_in_quotes(input_string):
 
 @app.route('/')
 def hello():
+    host = request.host
     example_links = [
-    "http://localhost:5000/v1/64bit_string?number=1234567890",
-    "http://localhost:5000/v1/nbit_string?number=1234567890&bit_size=128",
-    "http://localhost:5000/v1/base64_encoded_image?number=1234567890",
-    "http://localhost:5000/v1/scaled_2d_64bit_string?number=1234567890&x=8&y=8",
-    "http://localhost:5000/v1/color_array?number=1234567890",
-    "http://localhost:5000/v1/base64_image_array_as_a_list?number=1234567890",
+    f"http://{host}/v1/64bit_string?number=1234567890",
+    f"http://{host}/v1/nbit_string?number=1234567890&bit_size=128",
+    f"http://{host}/v1/base64_encoded_image?number=1234567890",
+    f"http://{host}/v1/scaled_2d_64bit_string?number=1234567890&x=8&y=8",
+    f"http://{host}/v1/color_array?number=1234567890",
+    f"http://{host}/v1/base64_image_array_as_a_list?number=1234567890",
 
     # The following will download the resulting image file to the client's device:
-    "http://localhost:5000/v1/image?number=1234567890",
-    "http://localhost:5000/v1/bigger_image?number=1234567890&x=8&y=8",
-    "http://localhost:5000/v1/deflate_image?x=4&y=4",
-    "http://localhost:5000/v1/deflate_image?x=4&y=4&input_file_path=./app/inflated_image_16by16.png",
-    "http://localhost:5000/v1/inflate_image_from_url?x=8&y=8&image_url=https://opengameart.org/sites/default/files/blocks_0.png",
-    "http://localhost:5000/v1/inflate_image_from_path?x=8&y=8&image_path=./app/inflated_image_16by16.png",
+    f"http://{host}/v1/image?number=1234567890",
+    f"http://{host}/v1/bigger_image?number=1234567890&x=8&y=8",
+    f"http://{host}/v1/deflate_image?x=4&y=4",
+    f"http://{host}/v1/deflate_image?x=4&y=4&input_file_path=./app/inflated_image_16by16.png",
+    f"http://{host}/v1/inflate_image_from_url?x=8&y=8&image_url=https://opengameart.org/sites/default/files/blocks_0.png",
+    f"http://{host}/v1/inflate_image_from_path?x=8&y=8&image_path=./app/inflated_image_16by16.png",
     ]
     hello_message='''Hello, Flask and Gunicorn! Try navigating to the api endpoints.'''
     hello_message += "\nHere are some example endpoints:"
