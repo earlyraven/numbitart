@@ -1,0 +1,19 @@
+{"entries":
+[
+{
+    "name": "Colorful Bricks"
+    "filename": "blocks_0.png"
+    "direct_link": "https://opengameart.org/sites/default/files/blocks_0.png"
+    "main_link": https://opengameart.org/content/colorful-bricks
+    "license": "cc0"
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/"
+    "authors": ["Iwan Gabovitch"]
+    "author_links": [http://iwan.tumblr.com/]
+    "submitted_by": "qubodup"
+    "submitted_by_link": "https://opengameart.org/users/qubodup"
+    "submitter_is_author": "unknown; but I think so."
+    "published_on": "Tuesday, April 21, 2009 - 10:14"
+    "retrieved_on": "November 29, 2023"
+},
+]
+}
